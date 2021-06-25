@@ -1,0 +1,119 @@
+﻿{% extends 'secretary/dashboard/watchman-index.html' %}      
+{% load static %}
+{% block content %}
+<section class="content home">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-5 col-md-5 col-sm-12">
+                <h2>Add Visitors <small class="text-muted">Welcome to Digital-Society</small></h2>
+            </div>            
+            <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                
+                
+                
+                <ul class="breadcrumb float-md-right">
+                    <li class="breadcrumb-item"><a href="..\dashboard\index.html"><i class="zmdi zmdi-home"></i> Home</a></li>
+                                                   
+                                                                                <li class="breadcrumb-item active">Add Members</li>
+                                            </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">                
+        
+<div class="row clearfix">
+<div class="col-lg-12 col-md-12 col-sm-12">
+<div class="card">
+    <div class="header">
+        <h2><strong>Add </strong> Visitors </h2>
+        <ul class="header-dropdown">                            
+            <li class="remove">
+                <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="body">
+        <form action="{% url 'add-vistiors' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="dropdown">
+            <div class="col-sm-6">
+                <div class="form-group">
+            
+                <input class="dropbtn" placeholder=" Enter Member Name" name="member_firstname">
+                <div class="dropdown-content">
+                    {% for i in vall %}
+                    <option value="{{i.member_firstname}}">
+                    {% endfor %}
+                </div>
+              </div>
+              </div>
+              </div>
+              <div class="dropdown">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                
+                    <input class="dropbtn" placeholder=" Enter House No" name="house_no">
+                    <div class="dropdown-content">
+                        {% for i in vall %}
+                        <option value="{{i.house_no}}">
+                        {% endfor %}
+                    </div>
+                  </div>
+                  </div>
+                  </div>
+        
+       
+            <div class="row clearfix">
+            
+            
+           
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <input type="text" class="form-control" name = "visitor_firstname" placeholder="Visitor First Name">
+                </div>
+            </div>
+            
+        </div>
+        <div class="row clearfix">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" name ="contact" placeholder="contact">
+                </div>
+            </div>
+            
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <input type="date" class="form-control" name ="currentdate" placeholder="Current Date ">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="gender" placeholder="Gender">
+                </div>
+            </div> 
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="vechicle_deatails" placeholder="Vechicle Deatails">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="description" placeholder="Description">
+                </div>
+            </div>
+           
+            
+            <div class="col-sm-12">
+                <input type="submit" class="btn btn-primary btn-round" value="submit">    
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+    </div>
+</section>
+{% endblock %}
